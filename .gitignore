@@ -1,0 +1,8 @@
+.vscode
+venv/
+antlr-*.*.*-complete.jar
+# Remove dependencies for running on the university's broken systems
+deps/
+# Remove unecessary documents
+docs/
+tests/

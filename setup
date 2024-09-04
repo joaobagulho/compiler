@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ "$(uname)" == "Darwin" ]; then
+    pip3 install -r requirements.txt
+else
+    pip3 install -r requirements.txt  --break-system-packages
+fi
+
+if [ "$(uname)" == "Darwin" ]; then
+    java -jar deps/antlr-4.13.1-complete.jar -Dlanguage=Python3 -o src/antlr src/$1.g4
+else
+    rm -rf src/antlr
+    java -jar deps/antlr-4.13.1-complete.jar -Dlanguage=Python3 -o src src/$1.g4
+    mv src/src src/antlr
+fi
